@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+	   Real time Cryptocurrency Prices
+</title>
+    <meta charset="utf-8"/>
+    <meta name="Description" content="Learn to trade cryptocurrencies and learn what the said cryptocurrencies do, find the prices where to buy and anything and everything related to said coin">
+	<meta name="Keywords" content="ash, digibyte minecraft, bitconnect scam, buy stratis, bitconnectwhat's happening in the crypto markets, etherium">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+	<link rel="stylesheet" href="css/docs.css">
+	 <link rel="stylesheet" href="navbar-fixed-left.min.css">
+	 
+	<script src="css/docs.js"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	<script async src="/109d2dd360/109d2dd360.php"></script>
+    <script async src="/0642002365a8b439.3.1.2.1.l60.js"></script>
+	</head>
+	<body style="background: #0099F7;
+    background: -webkit-linear-gradient(to right, #F11712, #0099F7);
+    background: linear-gradient(to right, #F11712, #0099F7);">
+	<nav class="navbar  navbar-fixed-top navbar-expand-lg navbar-light bg-light" style="background-color:#fdcc52 !important ;  border-radius: 0px;">
+  <a class="navbar-brand" href="#">Exchange</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="blog.html">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Info.html">Infogram</a>
+      </li>
+    
+  <form class="form-inline my-2 my-lg-0">
+      <input id="search"class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </ul>
+  </div>
+</nav>
+		<div class="container">
+	
+	<div id="app" style="    padding-top: 80px;">
+            <table class="table table-hover" id="love" border="0" style="background-color:#00000062;" > 
+                <thead>
+                  <tr>
+                    <td>Rank</td>
+                    <td>Name</td>
+                    <td>Symbol</td>
+                    <td>Price (USD)</td>
+                    <td>Hour</td>
+                    <td>Day</td>
+                    <td>Week</td>
+                    <td>Market Cap (USD)</td>
+                </thead>
+                <tbody>
+				
+                    <tr :id="coin.id" v-for="coin in coins"  @click="navTo(coin.symbol)" class="panel-flex"> 
+		
+                        <td>{{ coin.rank }}</td>
+						<h4>
+                        <td><img v-bind:src="getCoinImage(coin.symbol)"> {{ coin.name }}</td></h4>
+                        <td>{{ coin.symbol }} </td>
+                        <td>{{ coin.price_usd | currency }}</td>
+                        <td v-bind:style="getColor(coin.percent_change_1h)">
+                            <span v-if="coin.percent_change_1h > 0">+</span>{{ coin.percent_change_1h }}%
+                        </td>
+                        <td v-bind:style="getColor(coin.percent_change_24h)">
+                            <span v-if="coin.percent_change_24h > 0">+</span>{{ coin.percent_change_24h }}%
+                        </td>
+                        <td v-bind:style="getColor(coin.percent_change_7d)">
+                            <span v-if="coin.percent_change_7d > 0">+</span>{{ coin.percent_change_7d }}%
+                        </td>
+                        <td>{{ coin.market_cap_usd | currency }}</td>
+                    </tr>
+					
+                </tbody>
+				
+              </table>
+     	 </div>
+		</div>
+	<hr>
+       
+        <script src="static/js/vue.js"></script>
+        <script src="static/js/vue2-filter.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="static/js/app.js"></script>
+	
+	    <script src="vendor/jquery/jquery.min.js"></script>
+				<script>
+					$(document).ready(function() {
+    $("#search").on("keyup", function() {
+        $('.panel-flex').hide();
+        var searchTerm = $(this).val().toLowerCase();
+         $('.panel-flex').filter(function(){
+              return  $(this).find("h4").text().toLowerCase().indexOf(searchTerm) > -1;
+        }).show();
+    });
+});
+					</script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <script src="js/new-age.min.js"></script>
+	
+	
+
+    </body>
+</html>
